@@ -1,0 +1,1 @@
+dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc Fall2025_Project3._1_Loswald.Data.ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite

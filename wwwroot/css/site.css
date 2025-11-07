@@ -1,0 +1,65 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+header {  
+  background-color: crimson;
+  color: #ffffff;
+  text-align: center;
+  font-family: Impact;
+  border-radius: 8px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+
+body {
+  background: url('popcorn.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ab1111;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  font-family: Impact;
+}
+
+.text-box {
+    background-color: black; 
+    color: white; 
+    padding: 20px; 
+    margin: 0px auto; 
+    width: 95%; 
+    max-width: 1000px; 
+    border-radius: 8px; 
+    text-align: center; 
+}
+
+
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+footer {
+  background-color: white;
+  color: black;
+}
