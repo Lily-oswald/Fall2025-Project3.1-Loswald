@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fall2025_Project3._1_Loswald.Data;
+using Fall2025_Project3._1_Loswald.Models;
 
 namespace Fall2025_Project3._1_Loswald.Controllers
 {

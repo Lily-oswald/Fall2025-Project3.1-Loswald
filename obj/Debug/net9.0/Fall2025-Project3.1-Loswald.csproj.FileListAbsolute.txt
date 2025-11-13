@@ -1,5 +1,6 @@
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/appsettings.Development.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/appsettings.json
+/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/assets/img/favicons/manifest.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/Fall2025-Project3.1-Loswald.staticwebassets.runtime.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/Fall2025-Project3.1-Loswald.staticwebassets.endpoints.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/app.db
@@ -293,7 +294,6 @@
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.MvcApplicationPartsAssemblyInfo.cache
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.RazorAssemblyInfo.cache
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.RazorAssemblyInfo.cs
-/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.sourcelink.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
@@ -435,5 +435,4 @@
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.pdb
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.genruntimeconfig.cache
 /Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/ref/Fall2025-Project3.1-Loswald.dll
-/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/assets/img/favicons/manifest.json
-/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/compressed/xg1ep7h4r8-yryce0mvg9.gz
+/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/compressed/xg1ep7h4r8-r4nlrcsxel.gz

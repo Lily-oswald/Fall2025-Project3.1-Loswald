@@ -11,6 +11,9 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
+.navbar-nav.flex-grow-1 {
+  font-family: Arial;
+}
 
 header {  
   background-color: crimson;
@@ -30,7 +33,7 @@ html {
 body {
   background: url('popcorn.png') no-repeat center center fixed;
   background-size: cover;
-  color: #ab1111;
+  color: #000000;
   font-weight: bold;
   font-size: large;
   text-align: center;
