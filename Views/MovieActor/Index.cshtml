@@ -1,0 +1,197 @@
+@{
+    ViewData["Title"] = "Connect Actors to Movies";
+    var movies = ViewBag.Movies as List<Fall2025_Project3._1_Loswald.Models.Movie>;
+    var actors = ViewBag.Actors as List<Fall2025_Project3._1_Loswald.Models.Actor>;
+    var movieActors = ViewBag.MovieActors as List<Fall2025_Project3._1_Loswald.Models.MovieActor>;
+}
+
+@section Styles {
+<style>
+    body {
+        background: white !important;
+        color: #333 !important;
+        font-weight: normal !important;
+    }
+    
+    header {
+        background-color: #dc3545;
+        color: white;
+        text-align: center;
+        font-family: Impact;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        padding: 1rem;
+    }
+    
+    .card {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        border: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    
+    .table {
+        background-color: white;
+    }
+    
+    .table-dark {
+        background-color: #212529 !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: #333;
+        font-weight: bold;
+    }
+    
+    .text-muted {
+        color: #6c757d !important;
+    }
+</style>
+}
+
+<header>
+    <h1>Connect Actors to Movies</h1>
+</header>
+
+<div class="container-fluid bg-white py-4">
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<!-- Add New Connection -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Add Actor to Movie</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-action="AddActorToMovie">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="movieId" class="form-label">Select Movie:</label>
+                            <select name="movieId" id="movieId" class="form-select" required>
+                                <option value="">Choose a movie...</option>
+                                @if (movies != null)
+                                {
+                                    @foreach (var movie in movies)
+                                    {
+                                        <option value="@movie.ID">@movie.Title (@movie.ReleaseYear) - @movie.genre</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="actorId" class="form-label">Select Actor:</label>
+                            <select name="actorId" id="actorId" class="form-select" required>
+                                <option value="">Choose an actor...</option>
+                                @if (actors != null)
+                                {
+                                    @foreach (var actor in actors)
+                                    {
+                                        <option value="@actor.ID">@actor.Name - @actor.Gender, Age @actor.Age</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fa fa-plus"></i> Connect
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Current Connections -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Current Actor-Movie Connections</h3>
+            </div>
+            <div class="card-body">
+                @if (movieActors != null && movieActors.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Movie</th>
+                                    <th>Actor</th>
+                                    <th>Movie Details</th>
+                                    <th>Actor Details</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var ma in movieActors)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>@ma.Movie.Title</strong><br>
+                                            <small class="text-muted">@ma.Movie.ReleaseYear - @ma.Movie.genre</small>
+                                        </td>
+                                        <td>
+                                            <strong>@ma.Actor.Name</strong><br>
+                                            <small class="text-muted">@ma.Actor.Gender, Age @ma.Actor.Age</small>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Details", "Movies", new { id = ma.Movie.ID })" class="btn btn-sm btn-primary">
+                                                View Movie
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Details", "Actors", new { id = ma.Actor.ID })" class="btn btn-sm btn-info">
+                                                View Actor
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <form method="post" asp-action="RemoveActorFromMovie" style="display: inline;">
+                                                <input type="hidden" name="movieId" value="@ma.Movie.ID" />
+                                                <input type="hidden" name="actorId" value="@ma.Actor.ID" />
+                                                <button type="submit" class="btn btn-sm btn-danger" 
+                                                        onclick="return confirm('Are you sure you want to remove this connection?')">
+                                                    <i class="fa fa-trash"></i> Remove
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center py-4">
+                        <p class="text-muted mb-3">No actor-movie connections have been created yet.</p>
+                        <p>Use the form above to connect actors to movies!</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4 mb-4">
+    <a asp-controller="Movies" asp-action="Index" class="btn btn-secondary">Movies</a>
+    <a asp-controller="Actors" asp-action="Index" class="btn btn-secondary">Actors</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Home</a>
+</div>
+
+</div>

@@ -1,18 +1,25 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Fall2025_Project3._1_Loswald.Data;
+using Fall2025_Project3._1_Loswald.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer("Server=tcp:fall2025-project3-loswald.database.windows.net,1433;Initial Catalog=Fall2025-Project3-Loswald;Persist Security Info=False;User ID=Serveradmin;Password=Fullstack330;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+    options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+// Register the Movie Review Service
+builder.Services.AddScoped<IMovieReviewService, MovieReviewService>();
+
+// Register the Actor Tweet Service
+builder.Services.AddScoped<IActorTweetService, ActorTweetService>();
 
 var app = builder.Build();
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj": {}
+    "/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj": {}
   },
   "projects": {
-    "/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj": {
+    "/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj",
+        "projectUniqueName": "/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj",
         "projectName": "Fall2025-Project3.1-Loswald",
-        "projectPath": "/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj",
+        "projectPath": "/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald.csproj",
         "packagesPath": "/Users/lilyoswald/.nuget/packages/",
-        "outputPath": "/Users/lilyoswald/Desktop/Classes/CS330/Fall2025-Project3.1-Loswald/Fall2025-Project3.1-Loswald/obj/",
+        "outputPath": "/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/lilyoswald/.nuget/NuGet/NuGet.Config"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Azure.AI.OpenAI": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -79,6 +83,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "VaderSharp2": {
+              "target": "Package",
+              "version": "[3.3.2.1, )"
             }
           },
           "imports": [

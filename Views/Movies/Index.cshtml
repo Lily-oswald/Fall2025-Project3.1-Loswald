@@ -3,15 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
+<header>
+    <h1>Movies</h1>
+</header>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New Movie</a>
+    </p>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
+            <th>
+                Poster
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -24,17 +28,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.ReleaseYear)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
+                @if (item.Poster != null)
+                {
+                    <img src="@Url.Action("GetPosterImage", new { id = item.ID })" alt="Poster" style="max-width: 100px; max-height: 150px;" class="img-thumbnail" />
+                }
+                else
+                {
+                    <span class="text-muted">No poster</span>
+                }
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IMDB_link)
+                @if (!string.IsNullOrEmpty(item.IMDB_link))
+                {
+                    <a href="@item.IMDB_link" target="_blank" rel="noopener noreferrer">IMDB Link</a>
+                }
+                else
+                {
+                    <span class="text-muted">N/A</span>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.genre)
@@ -43,9 +64,9 @@
                 @Html.DisplayFor(modelItem => item.ReleaseYear)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-warning">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
 }

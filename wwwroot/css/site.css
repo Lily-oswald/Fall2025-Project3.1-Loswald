@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -20,7 +21,7 @@ header {
   color: #ffffff;
   text-align: center;
   font-family: Impact;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
 html {
@@ -31,13 +32,14 @@ html {
 
 
 body {
-  background: url('popcorn.png') no-repeat center center fixed;
+  background: url('snack.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #000000;
   font-weight: bold;
   font-size: large;
   text-align: center;
   font-family: Impact;
+  min-height: 100vh;
 }
 
 .text-box {
@@ -51,8 +53,6 @@ body {
     text-align: center; 
 }
 
-
-
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
@@ -65,4 +65,11 @@ body {
 footer {
   background-color: white;
   color: black;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 1rem 0;
+}
+
+/* Ensure footer stays at bottom */
+.footer {
+  margin-top: auto;
 }

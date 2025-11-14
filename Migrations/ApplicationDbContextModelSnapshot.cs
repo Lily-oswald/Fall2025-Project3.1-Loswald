@@ -24,11 +24,11 @@ namespace Fall2025_Project3._1_Loswald.Migrations
 
             modelBuilder.Entity("Fall2025_Project3._1_Loswald.Models.Actor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -43,7 +43,10 @@ namespace Fall2025_Project3._1_Loswald.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("ID");
 
                     b.ToTable("Actor");
                 });
@@ -59,6 +62,9 @@ namespace Fall2025_Project3._1_Loswald.Migrations
                     b.Property<string>("IMDB_link")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Poster")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<int>("ReleaseYear")
                         .HasColumnType("int");
 
@@ -72,6 +78,21 @@ namespace Fall2025_Project3._1_Loswald.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Movie");
+                });
+
+            modelBuilder.Entity("Fall2025_Project3._1_Loswald.Models.MovieActor", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ActorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MovieId", "ActorId");
+
+                    b.HasIndex("ActorId");
+
+                    b.ToTable("MovieActor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -276,6 +297,25 @@ namespace Fall2025_Project3._1_Loswald.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Fall2025_Project3._1_Loswald.Models.MovieActor", b =>
+                {
+                    b.HasOne("Fall2025_Project3._1_Loswald.Models.Actor", "Actor")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Fall2025_Project3._1_Loswald.Models.Movie", "Movie")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -325,6 +365,16 @@ namespace Fall2025_Project3._1_Loswald.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2025_Project3._1_Loswald.Models.Actor", b =>
+                {
+                    b.Navigation("MovieActors");
+                });
+
+            modelBuilder.Entity("Fall2025_Project3._1_Loswald.Models.Movie", b =>
+                {
+                    b.Navigation("MovieActors");
                 });
 #pragma warning restore 612, 618
         }

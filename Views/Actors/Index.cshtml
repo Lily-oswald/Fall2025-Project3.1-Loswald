@@ -3,15 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<header>
+    <h1>Actors</h1>
+</header>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Actor</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
+            <th>
+                Photo
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -24,17 +28,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.Age)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
+                @if (item.Photo != null)
+                {
+                    <img src="@Url.Action("GetActorPhoto", new { id = item.ID })" alt="Photo" style="width: 100px; height: 100px; object-fit: cover;" class="img-thumbnail" />
+                }
+                else
+                {
+                    <span class="text-muted">No photo</span>
+                }
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IMDB_link)
+                @if (!string.IsNullOrEmpty(item.IMDB_link))
+                {
+                    <a href="@item.IMDB_link" target="_blank" rel="noopener noreferrer">IMDB Link</a>
+                }
+                else
+                {
+                    <span class="text-muted">N/A</span>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Gender)
@@ -43,9 +64,9 @@
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-warning">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
 }

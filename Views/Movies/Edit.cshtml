@@ -3,14 +3,13 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
-
-<h4>Movie</h4>
-<hr />
+<header>
+    <h1>Edit</h1>
+    <h4>Movie</h4>
+</header>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -19,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="IMDB_link" class="control-label"></label>
-                <input asp-for="IMDB_link" class="form-control" />
+                <input asp-for="IMDB_link" class="form-control" type="url" placeholder="https://www.imdb.com/title/..." />
                 <span asp-validation-for="IMDB_link" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,8 +28,21 @@
             </div>
             <div class="form-group">
                 <label asp-for="ReleaseYear" class="control-label"></label>
-                <input asp-for="ReleaseYear" class="form-control" />
+                <input asp-for="ReleaseYear" class="form-control" type="number" />
                 <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+            </div>
+            @if (Model.Poster != null)
+            {
+                <div class="form-group">
+                    <label>Current Poster</label><br />
+                    <img src="@Url.Action("GetPosterImage", new { id = Model.ID })" alt="Current Poster" style="max-width: 200px; max-height: 300px;" class="img-thumbnail" />
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="PosterFile" class="control-label"></label>
+                <input asp-for="PosterFile" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="PosterFile" class="text-danger"></span>
+                <small class="form-text text-muted">Upload a new poster image to replace the current one (JPG, PNG, etc.)</small>
             </div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
