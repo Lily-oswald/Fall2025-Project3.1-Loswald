@@ -66,10 +66,4 @@ footer {
   background-color: white;
   color: black;
   font-family: 'Times New Roman', Times, serif;
-  padding: 1rem 0;
-}
-
-/* Ensure footer stays at bottom */
-.footer {
-  margin-top: auto;
 }

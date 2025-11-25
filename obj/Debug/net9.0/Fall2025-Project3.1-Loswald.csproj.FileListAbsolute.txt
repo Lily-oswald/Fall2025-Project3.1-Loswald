@@ -874,7 +874,7 @@
 /Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.pdb
 /Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/Fall2025-Project3.1-Loswald.genruntimeconfig.cache
 /Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/ref/Fall2025-Project3.1-Loswald.dll
-/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/compressed/xg1ep7h4r8-h3pbbcc96x.gz
 /Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/Azure.AI.OpenAI.dll
 /Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/OpenAI.dll
 /Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/bin/Debug/net9.0/VaderSharp2.dll
+/Users/lilyoswald/Code/Fall2025-Project3.1-Loswald/obj/Debug/net9.0/compressed/xg1ep7h4r8-p2yqobbjxk.gz

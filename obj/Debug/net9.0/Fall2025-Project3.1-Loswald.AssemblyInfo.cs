@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fall2025-Project3.1-Loswald")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a772a72f69db1e3d1f96804dd23a48f4b2dcb9a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b451ac55bb868ad8fd1dce17f7e9a4c55cbde698")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fall2025-Project3.1-Loswald")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fall2025-Project3.1-Loswald")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
