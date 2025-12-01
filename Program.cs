@@ -39,12 +39,15 @@ else
 app.Use(async (context, next) =>
 {
     context.Response.Headers.Append("Content-Security-Policy", 
-        "default-src 'self'; " +
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; " +
-        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; " +
-        "img-src 'self' data: https:; " +
-        "font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; " +
-        "connect-src 'self';");
+        "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; " +
+        "script-src * 'unsafe-inline' 'unsafe-eval'; " +
+        "style-src * 'unsafe-inline'; " +
+        "img-src * data: blob:; " +
+        "font-src *; " +
+        "connect-src *; " +
+        "frame-src *; " +
+        "object-src 'none'; " +
+        "base-uri 'self';");
     await next();
 });
 
