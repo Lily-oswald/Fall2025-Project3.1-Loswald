@@ -35,22 +35,6 @@ else
     app.UseHsts();
 }
 
-// Add Content Security Policy middleware
-app.Use(async (context, next) =>
-{
-    context.Response.Headers.Append("Content-Security-Policy", 
-        "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; " +
-        "script-src * 'unsafe-inline' 'unsafe-eval'; " +
-        "style-src * 'unsafe-inline'; " +
-        "img-src * data: blob:; " +
-        "font-src *; " +
-        "connect-src *; " +
-        "frame-src *; " +
-        "object-src 'none'; " +
-        "base-uri 'self';");
-    await next();
-});
-
 app.UseHttpsRedirection();
 app.UseRouting();
 
